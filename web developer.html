@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Ideas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        text-align: center;
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #ff7043;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #ff5722;
+      }
+
+      .recipe-display {
+        margin-top: 30px;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        background-color: #fefefe;
+      }
+
+      #recipe-title {
+        color: #ff7043;
+        font-size: 1.5rem;
+      }
+
+      #recipe-description {
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recipe Ideas</h1>
+      <p>Click the button below to get a random recipe idea!</p>
+      <button id="generate-recipe">Get Recipe Idea</button>
+      <div id="recipe-display" class="recipe-display">
+        <h2 id="recipe-title"></h2>
+        <p id="recipe-description"></p>
+      </div>
+    </div>
+    <script>
+      const recipes = [
+        {
+          title: "Spaghetti Carbonara",
+          description:
+            "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        },
+        {
+          title: "Avocado Toast",
+          description:
+            "A simple yet delicious breakfast option with smashed avocado on toasted bread, topped with chili flakes.",
+        },
+        {
+          title: "Chicken Tikka Masala",
+          description:
+            "Marinated chicken cooked in a creamy, spiced tomato sauce.",
+        },
+        {
+          title: "Vegan Buddha Bowl",
+          description:
+            "A nutritious bowl of quinoa, roasted vegetables, chickpeas, and tahini dressing.",
+        },
+        {
+          title: "Chocolate Lava Cake",
+          description:
+            "A rich dessert with a gooey chocolate center served warm with ice cream.",
+        },
+      ];
+
+      document
+        .getElementById("generate-recipe")
+        .addEventListener("click", () => {
+          const randomIndex = Math.floor(Math.random() * recipes.length);
+          const recipe = recipes[randomIndex];
+
+          document.getElementById("recipe-title").textContent = recipe.title;
+          document.getElementById("recipe-description").textContent =
+            recipe.description;
+        });
+    </script>
+  </body>
+</html>
